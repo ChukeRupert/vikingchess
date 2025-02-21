@@ -30,7 +30,7 @@ jobs:
       - name: Authenticate with Google Cloud using service account
         if: github.ref == 'refs/heads/main'
         run: |
-          echo "${{ secrets.GOOGLECREDS }}" > $HOME/gcloud-service-key.json
+          printf "%s" "${{ secrets.GOOGLECREDS }}" > $HOME/gcloud-service-key.json
           gcloud auth activate-service-account --key-file=$HOME/gcloud-service-key.json
           gcloud config set project $GOOGLE_PROJECT_ID
           gcloud auth configure-docker
