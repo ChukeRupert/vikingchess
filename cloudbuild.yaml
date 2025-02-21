@@ -1,0 +1,11 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'builds'
+      - 'submit'
+      - '--tag'
+      - 'gcr.io/$PROJECT_ID/my-chess-app'
+      - '--substitutions=_SOURCE_BUCKET=vikingchessgame'
+
+images:
+  - 'gcr.io/$PROJECT_ID/viking-chess-app'
