@@ -1,14 +1,17 @@
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import { NextResponse } from 'next/server';
 
-export const authOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-  ],
-};
+// Example API handler to get auth status or perform login
+export async function GET(request: Request) {
+  // Placeholder for auth logic
+  // This can check for a session or some other authentication mechanism
+  return NextResponse.json({ message: 'Authentication check successful' });
+}
 
-const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST };
+export async function POST(request: Request) {
+  // Handle login or other actions here
+  const data = await request.json();
+  
+  // You can perform authentication logic and create a session here
+  
+  return NextResponse.json({ message: 'Login successful' });
+}
